@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101126"><meta name="description" content="EduTech — интерактивное обучение информатике">
+  <title>EduTech — информатика интерактивно</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <section class="login-screen" id="login-screen" aria-labelledby="login-title">
+    <form class="login-card" id="login-form" autocomplete="on">
+      <div class="login-brand"><span class="brand-mark">E</span><span>Edu<span class="accent">Tech</span></span></div>
+      <div class="eyebrow">ОБРАЗОВАТЕЛЬНАЯ ПЛАТФОРМА</div>
+      <h1 id="login-title">С возвращением!</h1>
+      <p class="login-description" id="login-description">Войди, чтобы продолжить обучение и открыть свои материалы.</p>
+      <div class="field login-field" id="register-name-wrap" hidden><label for="register-name">Твоё имя</label><input id="register-name" name="displayName" type="text" autocomplete="name" placeholder="Как к тебе обращаться" maxlength="40"></div>
+      <div class="field login-field"><label for="login-username">Логин</label><input id="login-username" name="username" type="text" autocomplete="username" placeholder="Придумай логин" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_.-]+" title="Используй латинские буквы, цифры, точку, дефис или подчёркивание"></div>
+      <div class="field login-field"><label for="login-password">Пароль</label><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Введи пароль" required minlength="8" maxlength="100"></div>
+      <div class="field login-field" id="register-confirm-wrap" hidden><label for="register-confirm">Повтори пароль</label><input id="register-confirm" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Повтори пароль" minlength="8" maxlength="100"></div>
+      <p class="login-error" id="login-error" role="alert" hidden></p>
+      <button class="btn primary login-submit" id="auth-submit" type="submit">Войти в EduTech <span aria-hidden="true">→</span></button>
+      <p class="login-switch" id="login-switch-text">Ещё нет аккаунта? <button class="text-button" id="show-register" type="button">Зарегистрироваться</button></p>
+      <p class="login-hint" id="login-hint">Демо-доступ: <b>admin</b> / <b>EduTech2026!</b></p>
+      <p class="login-security-note">Учётная запись хранится только в этом браузере. Это локальная демонстрационная регистрация, не защищённая серверная система.</p>
+    </form>
+  </section>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Основная навигация">
+      <a class="brand" href="#home" data-route="home"><span class="brand-mark">E</span><span>Edu<span class="accent">Tech</span><small>УЧИСЬ. ПРОБУЙ. СОЗДАВАЙ.</small></span></a>
+      <div class="nav-label">ОБУЧЕНИЕ</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-route="home"><span>⌂</span> Главная</button>
+        <button class="nav-item" data-route="courses"><span>▤</span> Учебные модули</button>
+        <button class="nav-item" data-route="labs"><span>⚗</span> Лаборатория</button>
+        <button class="nav-item" data-route="tests"><span>✓</span> Тесты</button>
+        <button class="nav-item" data-route="search"><span>⌕</span> Поиск материалов</button>
+      </nav>
+      <div class="nav-label">МОЙ ПРОГРЕСС</div>
+      <nav class="nav-list">
+        <button class="nav-item" data-route="achievements"><span>♢</span> Достижения</button>
+        <button class="nav-item" data-route="profile"><span>◉</span> Мой профиль</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="mini-streak">🔥 <span><b id="sidebar-streak">0 дней</b><small>серия обучения</small></span></div><button class="nav-item" id="theme-toggle"><span>◐</span> Сменить тему</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="icon-button menu-toggle" id="menu-toggle" aria-label="Открыть меню">☰</button><div class="crumb" id="breadcrumb">Главная</div><div class="top-actions"><label class="search-box"><span>⌕</span><input id="global-search" type="search" placeholder="Найти тему или урок..." aria-label="Поиск материалов"><kbd>↵</kbd></label><button class="profile-chip" data-route="profile"><span class="avatar" id="top-avatar">У</span><span id="top-name">Ученик</span><span class="chevron">⌄</span></button><button class="btn small logout-button" id="logout-btn" type="button">Выйти</button></div></header>
+      <div id="app" class="page-content" tabindex="-1"><div class="loading-card">Загружаем учебную платформу…</div></div>
+      <footer class="footer"><span>© EduTech · Учись в своём темпе</span><span>Работает локально в браузере</span></footer>
+    </main>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="modal-root"></div>
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+  <script type="module" src="app.js"></script>
+</body></html>
